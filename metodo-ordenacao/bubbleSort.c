@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define TAM 5
 
-void bubbleSort(int num[], int tamanho){
+long bubbleSort(int num[], int tamanho){
     int aux;
     long count = 0;
     for(int i = 0; i<tamanho; i++){
@@ -15,7 +15,7 @@ void bubbleSort(int num[], int tamanho){
             count++;
         }
     }
-    printf("\n\nHow many time did the loop run: %.2ld\n\n", count);
+    return count;
 }
 
 void printNumbers(int num[], int tamanho){
@@ -32,8 +32,9 @@ int main(){
         scanf("%d", &num[i]);
     }
     printNumbers(num,TAM);
-    bubbleSort(num,TAM);  
+    long result = bubbleSort(num,TAM);  
     printNumbers(num,TAM);
+    printf("\n\nHow many time did the loop run: %.2ld\n\n", result);
 
     return 0;
 }
