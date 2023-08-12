@@ -2,17 +2,20 @@
 
 #define tam 5
 
-void selectionSort(int num[], int tamanho ){
-    int aux;
+int selectionSort(int num[], int tamanho ){
+    int aux, count = 0;
     for(int i = 0; i<tamanho; i++){
         for(int j = i + 1; j<tamanho; j++){
             if(num[i]>num[j]){
                 aux = num[j];
                 num[j] = num[i];
-                num[i] = aux; 
+                num[i] = aux;
+                count++; 
             }
         }
+        count++;
     }
+    return count;
 }
 
 void printNumbers(int num[], int tamanho){
@@ -29,8 +32,9 @@ int main(){
         scanf("%d", &num[i]);
     }
     printNumbers(num,tam);
-    selectionSort(num,tam);
+    int result = selectionSort(num,tam);
     printNumbers(num,tam);
+    printf("\n\nHow many time did the loop run: %d\n\n", result);
 
     return 0;
 }
