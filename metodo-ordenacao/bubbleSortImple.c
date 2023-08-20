@@ -26,15 +26,20 @@ No *insert(No *list){
 }
 
 void bubbleSort(No *novo){
-    int aux;
-    while(novo->next != NULL){
+    int aux, count;
+    do {
+        count = 0;
+        while(novo->next != NULL){
          if(novo->data > novo->next->data){
             aux = novo->data;
             novo->data = novo->next->data;
             novo->next->data = aux;
+            count = 1;
          }
          novo = novo->next;
-    }
+        }
+    } while(count);
+    
 }
 
 void listar(No *list){
