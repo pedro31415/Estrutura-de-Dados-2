@@ -20,6 +20,24 @@ void preOrdem(Tarvore * no){
     preOrdem(no->dir);
 }
 
+void ordem(Tarvore * no){
+    if(no == NULL){
+        return;
+    }
+    ordem(no->esq);
+    printf(" %d", no->dado);
+    ordem(no->dir);
+}
+
+void posOrdem(Tarvore * no){
+    if(no == NULL){
+        return;
+    }
+    posOrdem(no->esq);
+    posOrdem(no->dir);
+    printf(" %d", no->dado);
+}
+
 int main(){
     raiz = malloc(sizeof(Tarvore));
     raiz->dado = 1;
@@ -55,7 +73,12 @@ int main(){
     filho->esq = filho->dir = NULL;
     raiz->dir->dir = filho;
 
+    printf("\n\nPreOrdem\n\n");
     preOrdem(raiz);
+    printf("\n\nOrdem\n\n");
+    ordem(raiz);
+    printf("\n\nPosOrdem\n\n");
+    posOrdem(raiz);
 
     return 0;
 }
